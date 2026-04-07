@@ -1,0 +1,260 @@
+/* === RESET === */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background: linear-gradient(180deg, #f6f9ff 0%, #eef3ff 100%);
+  color: #0f172a;
+}
+
+/* === ЛОГО === */
+.logo {
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* === ОСНОВА === */
+main {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  padding: 0 16px;
+}
+
+.shadow-block {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* === КАРТОЧКА === */
+.content {
+  padding: 32px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+/* === ТЕКСТ === */
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.sub-title {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #64748b;
+}
+
+/* === ЛОАДЕР === */
+.loader {
+  margin-top: 20px;
+}
+
+.dot-flashing {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6366f1;
+  animation: blink 1.4s infinite;
+}
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.2; }
+  40% { opacity: 1; }
+}
+
+/* === МОДАЛКА === */
+.modal-background {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+/* === МОДАЛЬНОЕ ОКНО === */
+.modal {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  animation: fadeIn 0.3s ease;
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* === ЗАГОЛОВОК === */
+.modal-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #dc2626;
+  margin-bottom: 16px;
+}
+
+/* === ТЕКСТ === */
+.modal-text {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* === СПИСОК ТЕЛЕФОНОВ === */
+.support-phones-list {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.support-phones-list .modal-text {
+  background: #f1f5f9;
+  padding: 12px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.support-phones-list .modal-text:hover {
+  background: #e2e8f0;
+}
+
+.support-phones-list strong {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #334155;
+}
+
+.support-phones-list a {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.support-phones-list a:hover {
+  text-decoration: underline;
+}
+
+/* === КНОПКИ === */
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.cancel-button {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cancel-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* === CLOSE BUTTON === */
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  color: #64748b;
+}
+
+/* === ЧЕКБОКС === */
+.not-robot-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.not-robot-checkbox input {
+  display: none;
+}
+
+.not-robot-box {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-robot-checkbox input:checked + .not-robot-box {
+  background: #2563eb;
+}
+
+.not-robot-checkbox input:checked + .not-robot-box::after {
+  content: "✓";
+  color: #fff;
+  font-size: 14px;
+}
+
+/* === МОБИЛКА === */
+@media (max-width: 480px) {
+  .modal {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+
+  .modal-text {
+    font-size: 13px;
+  }
+}
+
+.modal-title {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 16px;
+    }
+
+    /* Текст модального окна */
+    .modal-text {
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 12px;
+    }
