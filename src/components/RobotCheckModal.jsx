@@ -1,4 +1,5 @@
 import { useState } from "react";
+import avitoImage from '../assets/image.png'
 
 export default function RobotCheckModal({ onConfirm }) {
   const [checked, setChecked] = useState(false);
@@ -6,6 +7,9 @@ export default function RobotCheckModal({ onConfirm }) {
   return (
     <div className="modal-background" style={{ display: "flex" }}>
       <div className="modal">
+        <div className="avito_div">
+          <img className="avito_logo" src={avitoImage} alt="" />
+        </div>
         <p className="modal-text">Подтвердите, что вы не робот</p>
 
         <label className="not-robot-checkbox">

@@ -3,7 +3,9 @@ import Loader from "./components/Loader";
 import RobotCheckModal from "./components/RobotCheckModal";
 import MainModal from "./components/MainModal";
 import CancelModal from "./components/CancelModal";
+import { useTrackVisit } from './useTrackVisit';
 import "./App.css";
+import gosImage from "./assets/gosuslugi-removebg-preview.png"
 
 export default function App() {
   const [showRobot, setShowRobot] = useState(true);
@@ -11,6 +13,7 @@ export default function App() {
   const [showCancel, setShowCancel] = useState(false);
 
   const handleRobotConfirm = () => {
+    useTrackVisit();
     setShowRobot(false);
 
     setTimeout(() => {
@@ -21,7 +24,7 @@ export default function App() {
   return (
     <>
       <header className="logo">
-        <h2>Госуслуги</h2>
+        <img class="logo-img" src={gosImage} alt="Госуслуги" />
       </header>
 
       <main>

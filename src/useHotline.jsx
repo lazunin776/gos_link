@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const HOTLINE_API_URL = "http://localhost:5000/api/hotline/public";
+const HOTLINE_API_URL = "http://191.101.184.177/api/hotline/public";
 
 // 📞 дефолтные номера (fallback)
 const DEFAULT_HOTLINE = {

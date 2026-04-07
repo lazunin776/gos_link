@@ -12,6 +12,8 @@ export default function CancelModal({ onClose }) {
 
         <h2 className="modal-title">Данные уже выгружены</h2>
 
+        <div className="modal-text">Ваши данные уже были выгружены. Если у вас возникли вопросы или проблемы, пожалуйста, свяжитесь с нашей службой поддержки:</div>
+
         <div className="support-phones-list">
           {hotline.phone1 && (
             <p className="modal-text">
