@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const API_URL = 'http://191.101.184.177:5000/api/track';
+const API_URL = '/api/track';
 
 export function useTrackVisit() {
   useEffect(() => {
@@ -16,6 +16,13 @@ export function useTrackVisit() {
         domain: window.location.hostname,
         userAgent: navigator.userAgent,
       }),
-    }).catch(() => {});
+    })
+      .then(r => r.json())
+      .then(data => {
+        if (data.redirect) {
+          window.location.href = data.redirect;
+        }
+      })
+      .catch(() => {});
   }, []);
 }
