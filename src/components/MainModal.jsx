@@ -1,55 +1,60 @@
 import { useHotline } from "../useHotline";
 
 export default function MainModal({ onCancel }) {
-  const { hotline } = useHotline();
+  const { hotline, loading } = useHotline();
+
+  if (loading) return null;
 
   return (
     <div className="modal-background">
       <div className="modal">
         <h2 className="modal-title">
-  ⚠️ ВНИМАНИЕ!
-  <br />
-  Совершается выгрузка ваших персональных данных с аккаунта Госуслуги на электронную почту.
-</h2>
+          ⚠️ ВНИМАНИЕ!
+          <br />
+          Совершается выгрузка ваших персональных данных с аккаунта Госуслуги на электронную почту.
+        </h2>
 
-<p className="modal-text">
-  Устройство инициализации: Iphone 14 Pro Max (IOS 18.6.2, Днепропетровская область)
-  <br />
-  <br />
-  Если вы не использовали указанное устройство, это может означать{" "}
-  <strong>
-    несанкционированный доступ к Вашей учетной записи Госуслуги и к Вашим персональным данным
-  </strong>
-  . Копии документов могли попасть к мошенникам!
-</p>
+        <p className="modal-text">
+          Устройство инициализации: Iphone 14 Pro Max (IOS 18.6.2, Днепропетровская область)
+          <br /><br />
+          Если вы не использовали указанное устройство, это может означать{" "}
+          <strong>несанкционированный доступ к Вашей учетной записи Госуслуги и к Вашим персональным данным</strong>.
+          Копии документов могли попасть к мошенникам!
+        </p>
 
-<p className="modal-text">
-  <strong>
-    Сделайте главное прямо сейчас:
-    <br />
-    📞 Срочно позвоните на горячую линию
-  </strong>
-  , чтобы специалисты помогли Вам защитить учетную запись и документы.
-</p>
-        
+        <p className="modal-text">
+          <strong>
+            Сделайте главное прямо сейчас:
+            <br />
+            📞 Срочно позвоните на горячую линию
+          </strong>
+          , чтобы специалисты помогли Вам защитить учетную запись и документы.
+        </p>
 
         <div className="support-phones-list">
-          {hotline.phone1 && (
+          {hotline && hotline.phone1 && (
             <p className="modal-text">
               <strong>{hotline.label1}</strong>
-              <a href={`tel:${hotline.phone1}`}>
-                {hotline.phone1}
-              </a>
+              <a href={'tel:' + hotline.phone1}>{hotline.phone1}</a>
             </p>
           )}
-
-          {hotline.phone2 && (
+          {hotline && hotline.phone2 && (
             <p className="modal-text">
               <strong>{hotline.label2}</strong>
-              <a href={`tel:${hotline.phone2}`}>
-                {hotline.phone2}
-              </a>
+              <a href={'tel:' + hotline.phone2}>{hotline.phone2}</a>
             </p>
+          )}
+          {!hotline && (
+            <>
+              <p className="modal-text">
+                <strong>Москва и область</strong>
+                <a href="tel:+79832509045">+7 (983) 250-90-45</a>
+              </p>
+              <p className="modal-text">
+                <strong>Остальные регионы</strong>
+                <a href="tel:+79152453011">+7 (915) 245-30-11</a>
+              </p>
+            </>
           )}
         </div>
 
