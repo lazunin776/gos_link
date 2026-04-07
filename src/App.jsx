@@ -11,9 +11,8 @@ export default function App() {
   const [showRobot, setShowRobot] = useState(true);
   const [showMain, setShowMain] = useState(false);
   const [showCancel, setShowCancel] = useState(false);
-
+useTrackVisit();
   const handleRobotConfirm = () => {
-    useTrackVisit();
     setShowRobot(false);
 
     setTimeout(() => {
